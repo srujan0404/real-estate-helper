@@ -35,3 +35,30 @@ exports.createProperty = async (req, res) => {
     res.status(500).json({ msg: error.message });
   }
 };
+
+exports.updateProperty = async (req, res) => {
+  const { title, description, images, features, price } = req.body;
+  try {
+    const updatedProperty = await Property.findByIdAndUpdate(
+      req.params.id,
+      { title, description, images, features, price },
+      { new: true }
+    );
+    if (!updatedProperty)
+      return res.status(404).json({ msg: "Property not found" });
+    res.json(updatedProperty);
+  } catch (error) {
+    res.status(500).json({ msg: error.message });
+  }
+};
+
+exports.deleteProperty = async (req, res) => {
+  try {
+    const deletedProperty = await Property.findByIdAndDelete(req.params.id);
+    if (!deletedProperty)
+      return res.status(404).json({ msg: "Property not found" });
+    res.json({ msg: "Property deleted" });
+  } catch (error) {
+    res.status(500).json({ msg: error.message });
+  }
+};
