@@ -1,28 +1,41 @@
-.about-us {
+.about-wrapper {
   padding: 60px 20px;
-  background-color: #f5f5f5;
+  background-color: #fff;
 }
 
-.container {
+.about-container {
   max-width: 1200px;
   margin: 0 auto;
-  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
 }
 
-.title {
-  font-size: 2.5rem;
-  color: #333;
+.about-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.main-heading {
+  font-size: 36px;
+  font-weight: bold;
   margin-bottom: 20px;
 }
 
-.description {
-  font-size: 1.2rem;
+.description-text {
+  font-size: 18px;
   color: #666;
-  margin-bottom: 40px;
 }
 
-.team-title {
-  font-size: 2rem;
-  color: #333;
-  margin-bottom: 20px;
+.about-right .image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-right img {
+  max-width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }

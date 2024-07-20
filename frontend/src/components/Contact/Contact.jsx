@@ -6,75 +6,69 @@ import { HiChatBubbleBottomCenter } from "react-icons/hi2";
 
 const Contact = () => {
   return (
-    <div id="contact-us" className="c-wrapper">
-      <div className="paddings innerWidth flexCenter c-container">
+    <section id="contact-us" className="contact-wrapper">
+      <div className="container flex-center contact-container">
         {/* Left side */}
-        <div className="flexColStart c-left">
-          <span className="orangeText">Contact Us</span>
-          <span className="primaryText">Easy to contact us</span>
-          <span className="secondaryText">
+        <div className="flex-col-start contact-left">
+          <h2 className="highlight-text">Contact Us</h2>
+          <h1 className="main-heading">Easy to contact us</h1>
+          <p className="description-text">
             We are always ready to help by providing the best services for you.
             We believe a good place to live can make your life better.
-          </span>
+          </p>
 
-          <div className="flexColStart contactModes">
+          <div className="grid contact-modes">
             {/* First row */}
-            <div className="flexStart row">
-              <ContactMode
-                icon={<MdCall size={25} />}
-                title="Call"
-                detail="021 123 145 14"
-                buttonText="Call now"
-              />
-
-              <ContactMode
-                icon={<BsFillChatDotsFill size={25} />}
-                title="Chat"
-                detail="021 123 145 14"
-                buttonText="Chat now"
-              />
-            </div>
+            <ContactMode
+              icon={<MdCall size={25} />}
+              title="Call"
+              detail="021 123 145 14"
+              buttonText="Call now"
+            />
+            <ContactMode
+              icon={<BsFillChatDotsFill size={25} />}
+              title="Chat"
+              detail="021 123 145 14"
+              buttonText="Chat now"
+            />
 
             {/* Second row */}
-            <div className="flexStart row">
-              <ContactMode
-                icon={<BsFillChatDotsFill size={25} />}
-                title="Video Call"
-                detail="021 123 145 14"
-                buttonText="Video Call now"
-              />
-
-              <ContactMode
-                icon={<HiChatBubbleBottomCenter size={25} />}
-                title="Message"
-                detail="021 123 145 14"
-                buttonText="Message now"
-              />
-            </div>
+            <ContactMode
+              icon={<BsFillChatDotsFill size={25} />}
+              title="Video Call"
+              detail="021 123 145 14"
+              buttonText="Video Call now"
+            />
+            <ContactMode
+              icon={<HiChatBubbleBottomCenter size={25} />}
+              title="Message"
+              detail="021 123 145 14"
+              buttonText="Message now"
+            />
           </div>
         </div>
 
         {/* Right side */}
-        <div className="flexEnd c-right">
+        <div className="contact-right">
           <div className="image-container">
             <img src="./contact.jpg" alt="Contact Us" />
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
 const ContactMode = ({ icon, title, detail, buttonText }) => (
-  <div className="flexColCenter mode">
-    <div className="flexStart">
-      <div className="flexCenter icon">{icon}</div>
-      <div className="flexColStart detail">
-        <span className="primaryText">{title}</span>
-        <span className="secondaryText">{detail}</span>
+  <div className="contact-mode">
+    <div className="mode-header">
+      <div className="icon">{icon}</div>
+      <div className="mode-detail">
+        <h3 className="mode-title">{title}</h3>
+        <p className="mode-text">{detail}</p>
       </div>
     </div>
-    <div className="flexCenter button">{buttonText}</div>
+    <button className="mode-button">{buttonText}</button>
   </div>
 );
 
