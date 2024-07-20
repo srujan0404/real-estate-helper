@@ -10,21 +10,37 @@ const Header = () => {
 
   return (
     <header className="header" style={{ background: headerColor }}>
-      <div className="container flex-between header-container">
+      <div className="container header-container">
         <img src="./logo.png" alt="logo" className="logo" />
 
         <OutsideClickHandler onOutsideClick={() => setMenuOpened(false)}>
           <nav className={`nav ${menuOpened ? "nav-open" : ""}`}>
-            <a href="#residencies" className="nav-link">
+            <a
+              href="#residencies"
+              className="nav-link"
+              onClick={() => setMenuOpened(false)}
+            >
               Residencies
             </a>
-            <a href="#value" className="nav-link">
+            <a
+              href="#value"
+              className="nav-link"
+              onClick={() => setMenuOpened(false)}
+            >
               Our Value
             </a>
-            <a href="#contact-us" className="nav-link">
+            <a
+              href="#contact-us"
+              className="nav-link"
+              onClick={() => setMenuOpened(false)}
+            >
               Contact Us
             </a>
-            <a href="#get-started" className="nav-link">
+            <a
+              href="#get-started"
+              className="nav-link"
+              onClick={() => setMenuOpened(false)}
+            >
               Get Started
             </a>
             <button className="nav-button">

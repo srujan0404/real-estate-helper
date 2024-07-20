@@ -1,23 +1,18 @@
 /* Header.css */
 .header {
+  position: fixed;
   width: 100%;
-  padding: 20px 0;
-  transition: background 0.3s ease-in-out;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  transition: background 0.3s;
 }
 
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.flex-between {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 20px;
 }
 
 .logo {
@@ -27,34 +22,39 @@
 .nav {
   display: flex;
   align-items: center;
-  gap: 20px;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease;
+}
+
+.nav-open {
+  transform: translateX(0);
 }
 
 .nav-link {
+  margin-left: 20px;
   text-decoration: none;
   color: #333;
-  font-size: 16px;
-  transition: color 0.3s ease;
+  font-size: 1rem;
+  transition: color 0.3s;
 }
 
 .nav-link:hover {
   color: #007bff;
 }
 
-.nav-button a {
-  text-decoration: none;
-  color: white;
-}
-
 .nav-button {
-  background-color: #007bff;
-  color: white;
-  border: none;
+  margin-left: 20px;
   padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s;
+}
+
+.nav-button a {
+  color: #fff;
+  text-decoration: none;
 }
 
 .nav-button:hover {
@@ -66,23 +66,22 @@
   cursor: pointer;
 }
 
-/* Responsive Styles */
+/* Responsive */
 @media (max-width: 768px) {
   .nav {
     position: absolute;
-    top: 70px;
+    top: 100%;
     right: 0;
+    background: #fff;
     flex-direction: column;
-    background: white;
-    width: 200px;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 300px;
     transform: translateX(100%);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
 
-  .nav-open {
-    transform: translateX(0);
+  .nav-link {
+    margin: 20px 0;
   }
 
   .menu-icon {
