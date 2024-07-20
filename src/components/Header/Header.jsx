@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./Header.css";
 import { BiMenuAltRight } from "react-icons/bi";
-import { getMenuStyles } from "../../utils/common";
 import useHeaderColor from "../../hooks/useHeaderColor";
 import OutsideClickHandler from "react-outside-click-handler";
 
@@ -10,41 +9,35 @@ const Header = () => {
   const headerColor = useHeaderColor();
 
   return (
-    <section className="h-wrapper" style={{ background: headerColor }}>
-      <div className="flexCenter innerWidth paddings h-container">
-        {/* logo */}
-        <img src="./logo.png" alt="logo" width={100} />
+    <header className="header" style={{ background: headerColor }}>
+      <div className="container flex-between header-container">
+        <img src="./logo.png" alt="logo" className="logo" />
 
-        {/* menu */}
-        <OutsideClickHandler
-          onOutsideClick={() => {
-            setMenuOpened(false);
-          }}
-        >
-          <div
-            // ref={menuRef}
-            className="flexCenter h-menu"
-            style={getMenuStyles(menuOpened)}
-          >
-            <a href="#residencies">Residencies</a>
-            <a href="#value">Our Value</a>
-            <a href="#contact-us">Contact Us</a>
-            <a href="#get-started">Get Started</a>
-            <button className="button">
+        <OutsideClickHandler onOutsideClick={() => setMenuOpened(false)}>
+          <nav className={`nav ${menuOpened ? "nav-open" : ""}`}>
+            <a href="#residencies" className="nav-link">
+              Residencies
+            </a>
+            <a href="#value" className="nav-link">
+              Our Value
+            </a>
+            <a href="#contact-us" className="nav-link">
+              Contact Us
+            </a>
+            <a href="#get-started" className="nav-link">
+              Get Started
+            </a>
+            <button className="nav-button">
               <a href="mailto:zainkeepscode@gmail.com">Contact</a>
             </button>
-          </div>
+          </nav>
         </OutsideClickHandler>
 
-        {/* for medium and small screens */}
-        <div
-          className="menu-icon"
-          onClick={() => setMenuOpened((prev) => !prev)}
-        >
+        <div className="menu-icon" onClick={() => setMenuOpened(!menuOpened)}>
           <BiMenuAltRight size={30} />
         </div>
       </div>
-    </section>
+    </header>
   );
 };
 
