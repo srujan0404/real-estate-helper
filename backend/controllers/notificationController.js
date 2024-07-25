@@ -5,41 +5,55 @@ exports.createNotification = async (req, res) => {
   try {
     const newNotification = new Notification({ userId, message, type });
     await newNotification.save();
-    res.status(201).json(newNotification);
+    return res.status(201).json(newNotification);
   } catch (error) {
-    res.status(500).json({ msg: error.message });
+    console.error(error);
+    return res
+      .status(500)
+      .json({ msg: "Server error while creating notification" });
   }
 };
 
 exports.getNotifications = async (req, res) => {
   try {
     const notifications = await Notification.find();
-    res.json(notifications);
+    return res.status(200).json(notifications);
   } catch (error) {
-    res.status(500).json({ msg: error.message });
+    console.error(error);
+    return res
+      .status(500)
+      .json({ msg: "Server error while retrieving notifications" });
   }
 };
 
 exports.getNotificationById = async (req, res) => {
+  const { id } = req.params;
   try {
-    const notification = await Notification.findById(req.params.id);
-    if (!notification)
+    const notification = await Notification.findById(id);
+    if (!notification) {
       return res.status(404).json({ msg: "Notification not found" });
-    res.json(notification);
+    }
+    return res.status(200).json(notification);
   } catch (error) {
-    res.status(500).json({ msg: error.message });
+    console.error(error);
+    return res
+      .status(500)
+      .json({ msg: "Server error while retrieving notification" });
   }
 };
 
 exports.deleteNotification = async (req, res) => {
+  const { id } = req.params;
   try {
-    const deletedNotification = await Notification.findByIdAndDelete(
-      req.params.id
-    );
-    if (!deletedNotification)
+    const deletedNotification = await Notification.findByIdAndDelete(id);
+    if (!deletedNotification) {
       return res.status(404).json({ msg: "Notification not found" });
-    res.json({ msg: "Notification deleted" });
+    }
+    return res.status(200).json({ msg: "Notification deleted successfully" });
   } catch (error) {
-    res.status(500).json({ msg: error.message });
+    console.error(error);
+    return res
+      .status(500)
+      .json({ msg: "Server error while deleting notification" });
   }
 };
