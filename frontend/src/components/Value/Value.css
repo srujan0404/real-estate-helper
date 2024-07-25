@@ -1,57 +1,95 @@
-.v-container .image-container {
-  border: 8px solid rgb(232 232 232 / 93%);
+.v-wrapper {
+  padding: 4rem 1rem;
+  background-color: #f9f9f9;
 }
-.v-container > div {
+
+.v-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 2rem;
+}
+
+.v-left .image-container {
+  max-width: 500px;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.v-left img {
+  width: 100%;
+  height: auto;
+}
+
+.v-right {
   flex: 1;
 }
-.v-right {
-  gap: 0.5rem;
+
+.orangeText {
+  color: #ff5722;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
 }
+
+.primaryText {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.secondaryText {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
 .accordion {
-  margin-top: 2rem;
-  border: none;
-}
-.accordionItem {
-  background: white;
-  border: 0.8px solid rgba(128, 128, 128, 0.143);
-  border-radius: 8px;
-  overflow: hidden;
-  margin-bottom: 20px;
-}
-
-.accordionItem.expanded {
-  box-shadow: var(--shadow);
-  border-radius: 6px;
-}
-.accordionButton {
-  background: white;
-  padding: 1rem;
   width: 100%;
-  justify-content: space-between;
-  cursor: pointer;
 }
 
-.icon {
-  padding: 10px;
-  background: #eeeeff;
+.accordionItem {
+  border: none;
+  margin-bottom: 1rem;
+}
+
+.accordionButton {
+  background: #fff;
+  border: 1px solid #ddd;
   border-radius: 5px;
-}
-.icon svg {
-  fill: var(--blue);
-}
-
-.accordionButton .primaryText{
-    font-size: 1.1rem;
-}
-
-@media (max-width: 1024px) {
-    .v-container{
-        flex-direction: column;
-    }
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-@media (max-width: 768px) {
-    .accordionButton .primaryText{
-        font-size: .8rem;
-    }
+.accordionButton:hover {
+  background-color: #f1f1f1;
+}
+
+.accordionButton .icon {
+  display: flex;
+  align-items: center;
+}
+
+.accordionButton .icon.expanded {
+  transform: rotate(180deg);
+}
+
+.accordionPanel {
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background: #fff;
+  margin-top: -1px;
+}
+
+.accordionPanel p {
+  margin: 0;
 }
